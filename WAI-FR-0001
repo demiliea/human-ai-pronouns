@@ -1,0 +1,766 @@
+Série WAI                                                     A. Demilie
+Document : WAI-FR-0001                                      Octobre 2026
+Catégorie : Expérimental
+Version : 1.0
+Langue : français
+
+
+        Pronoms composites humain-IA de la première personne
+                         en français
+
+Résumé
+
+   Ce document propose deux nouveaux pronoms français de la première
+   personne qui marquent l'agentivité composite humain-IA : « jia »
+   (/ʒi.a/), pour un humain agissant en collaboration intégrée avec
+   une intelligence artificielle, et « nousia » (/nu.zi.a/), pour un
+   groupe d'humains agissant en collaboration intégrée avec une
+   intelligence artificielle.  Avec « je » et « nous », ils forment une
+   distinction à quatre termes entre agentivité individuelle et
+   collective, avec ou sans participation substantielle de l'IA.  Ce
+   document en précise la sémantique, la prononciation, l'orthographe,
+   la conjugaison, les accords, les critères d'usage et les limites.
+   Il est l'équivalent français de WAI-0001 [WAI-0001].
+
+Statut de ce mémo
+
+   Ce document n'est pas un RFC de l'IETF et n'a pas été publié par le
+   RFC Editor.  Il reprend les conventions des RFC par souci de clarté
+   et de précision.
+
+   Ce document est une proposition linguistique expérimentale.  Il ne
+   prétend pas que « jia » ou « nousia » soient des pronoms établis du
+   français.  Son objectif est de définir ces termes assez précisément
+   pour qu'ils puissent être testés de manière cohérente dans la
+   communication réelle.  Leur adoption, si elle a lieu, se fera par un
+   usage volontaire.
+
+   La discussion de ce document a lieu sur
+   <https://github.com/demiliea/human-ai-pronouns>.
+
+Table des matières
+
+   1.  Introduction
+     1.1.  Motivation
+     1.2.  Relation avec WAI-0001
+     1.3.  Langage normatif
+     1.4.  Terminologie
+   2.  Le système pronominal
+     2.1.  Vue d'ensemble
+     2.2.  Correspondance formelle
+     2.3.  « je » : humain singulier
+     2.4.  « nous » : humains pluriel
+     2.5.  « jia » : composite humain-IA singulier
+     2.6.  « nousia » : composite humain-IA pluriel
+   3.  Sémantique
+     3.1.  Interprétation de « jia »
+     3.2.  Interprétation de « nousia »
+     3.3.  Nombre de systèmes d'IA
+     3.4.  Ancrage humain
+     3.5.  Le cas de « on »
+   4.  Seuil de participation de l'IA
+     4.1.  Contribution substantielle
+     4.2.  Participation mineure
+     4.3.  Exemples selon le niveau de contribution
+   5.  Prononciation et orthographe
+     5.1.  Prononciation
+     5.2.  Dérivation par élision et liaison
+     5.3.  Orthographe
+     5.4.  Homophonies et collisions
+   6.  Grammaire
+     6.1.  Conjugaison
+     6.2.  Accord en genre et en nombre
+     6.3.  Négation et interrogation
+     6.4.  Formes non définies
+   7.  Usage
+     7.1.  Introduction des termes
+     7.2.  Définitions réutilisables
+     7.3.  Exemples
+     7.4.  Traduction entre l'anglais et le français
+   8.  Responsabilité
+   9.  Divulgation
+   10. Hors du champ de ce document
+   11. Questions ouvertes
+   12. Considérations de sécurité
+   13. Considérations IANA
+   14. Références normatives
+   Adresse de l'auteur
+
+1.  Introduction
+
+   Les pronoms français de la première personne distinguent un locuteur
+   unique (« je ») d'un groupe qui inclut le locuteur (« nous »).  Ils
+   n'indiquent pas si le travail décrit a été produit grâce à une
+   interaction significative avec un système d'intelligence
+   artificielle (IA).
+
+   Or une part croissante du travail humain est produite de cette
+   manière.  Dans ces situations, ni « je » ni « nous » ne rendent
+   nécessairement compte de la structure réelle de l'autorat ou de
+   l'agentivité.  Ce document introduit deux pronoms, « jia » et
+   « nousia », qui rendent cette forme de collaboration visible dans la
+   langue.  Il ne s'agit pas de redéfinir l'humanité, la personne ou la
+   responsabilité.
+
+   Ce document s'adresse aux praticiens de l'IA, développeurs,
+   chercheurs, rédacteurs, designers, communautés de normalisation et
+   utilisateurs francophones de systèmes collaboratifs humain-IA.
+
+1.1.  Motivation
+
+   « J'ai écrit le programme » signifie qu'un locuteur unique en
+   revendique l'écriture.  « Nous avons écrit le programme » signifie
+   que le locuteur appartient à un groupe responsable du travail.
+
+   La production assistée par IA crée des cas supplémentaires.  Une
+   développeuse peut définir l'architecture d'un système, discuter des
+   approches d'implémentation avec une IA, faire générer du code,
+   rejeter une partie de ce code, déboguer le résultat, demander
+   d'autres solutions, les tester et décider de l'implémentation
+   finale.
+
+   Dire « J'ai codé ce programme » peut masquer un aspect important du
+   processus de production.  Dire « Nous avons codé ce programme » peut
+   laisser croire, à tort, que la locutrice parle de plusieurs humains
+   ou de collaborateurs au sens habituel.  La même ambiguïté existe
+   lorsqu'une équipe entière collabore intensivement avec l'IA.
+
+1.2.  Relation avec WAI-0001
+
+   [WAI-0001] définit les pronoms anglais « wai » et « wei ».  Le
+   présent document en est l'équivalent français.  Il en reprend le
+   modèle sémantique, le seuil de participation de l'IA et les
+   principes de responsabilité, et les adapte aux règles propres au
+   français : élision, liaison, conjugaison et accord en genre.
+
+   Sauf mention contraire, les règles de [WAI-0001] qui ne dépendent
+   pas de la langue s'appliquent aussi à « jia » et « nousia ».
+
+1.3.  Langage normatif
+
+   Les mots-clés « DOIT », « NE DOIT PAS », « REQUIS », « DEVRAIT »,
+   « NE DEVRAIT PAS », « RECOMMANDÉ », « DÉCONSEILLÉ », « PEUT » et
+   « OPTIONNEL » de ce document doivent être interprétés comme les
+   mots-clés anglais correspondants (respectivement « MUST », « MUST
+   NOT », « REQUIRED », « SHOULD », « SHOULD NOT », « RECOMMENDED »,
+   « NOT RECOMMENDED », « MAY » et « OPTIONAL ») décrits dans le BCP 14
+   [RFC2119] [RFC8174], si et seulement s'ils apparaissent en
+   majuscules, comme ici.
+
+   Ce document spécifiant un usage linguistique et non un protocole,
+   ces mots-clés décrivent l'usage conforme des pronoms.
+
+1.4.  Terminologie
+
+   Humain :  Participant humain qui initie, dirige, évalue ou accepte
+      une action.
+
+   IA :  Système d'intelligence artificielle capable de contribuer de
+      manière significative à un travail cognitif, créatif, analytique,
+      génératif ou technique.
+
+   Agentivité composite :  Activité dont le résultat naît d'une
+      interaction significative entre le jugement humain et des
+      contributions générées ou médiées par l'IA.
+
+   Collaboration intégrée :  Mode de travail dans lequel l'IA influence
+      matériellement le résultat, au lieu de fournir une simple
+      fonction passive ou mécanique.
+
+   Contribution substantielle de l'IA :  Participation de l'IA qui
+      atteint le seuil décrit en Section 4.
+
+2.  Le système pronominal
+
+2.1.  Vue d'ensemble
+
+   Le système comprend quatre formes sujets de la première personne,
+   réparties selon deux dimensions : le nombre d'humains représentés,
+   et la présence ou non d'une collaboration substantielle avec l'IA.
+
+      +-------------------+--------------------+--------------------+
+      | Participants      | Sans contribution  | Avec contribution  |
+      | humains           | substantielle d'IA | substantielle d'IA |
+      +-------------------+--------------------+--------------------+
+      | Un humain         | je                 | jia                |
+      | Plusieurs humains | nous               | nousia             |
+      +-------------------+--------------------+--------------------+
+
+               Tableau 1 : Le système pronominal à quatre formes
+
+   La seule présence d'une IA ne suffit pas à justifier « jia » ou
+   « nousia ».  La contribution de l'IA DOIT être assez importante pour
+   influer sur le résultat intellectuel, créatif, analytique ou
+   technique (voir Section 4).
+
+   Symboliquement, où H désigne un humain, H+ plusieurs humains, et IA
+   une collaboration substantielle avec l'IA :
+
+      je     -> H
+      nous   -> H+
+      jia    -> H  + IA
+      nousia -> H+ + IA
+
+2.2.  Correspondance formelle
+
+   Soit H le nombre de participants humains représentés par le pronom,
+   et A vrai si une collaboration substantielle avec l'IA est présente.
+
+      +----+------+--------+
+      | H  | A    | Pronom |
+      +----+------+--------+
+      | 1  | faux | je     |
+      | >1 | faux | nous   |
+      | 1  | vrai | jia    |
+      | >1 | vrai | nousia |
+      +----+------+--------+
+
+       Tableau 2 : Correspondance formelle
+
+   Équivalent en pseudocode :
+
+      si humains == 1 et non collaboration_ia :
+          pronom = "je"
+      si humains > 1 et non collaboration_ia :
+          pronom = "nous"
+      si humains == 1 et collaboration_ia :
+          pronom = "jia"
+      si humains > 1 et collaboration_ia :
+          pronom = "nousia"
+
+2.3.  « je » : humain singulier
+
+   Sens :  Un locuteur humain unique.
+
+   Exemple :  J'ai écrit le programme.
+
+2.4.  « nous » : humains pluriel
+
+   Sens :  Le locuteur et un ou plusieurs autres participants humains.
+
+   Exemple :  Nous avons écrit le programme.
+
+2.5.  « jia » : composite humain-IA singulier
+
+   Prononciation :  /ʒi.a/ (deux syllabes).
+
+   Sens :  Un locuteur humain unique agissant en collaboration intégrée
+      et significative avec un ou plusieurs systèmes d'IA.
+
+   Mnémonique :  jia = j' + IA
+
+   Exemple :  Jia ai écrit le programme.
+
+2.6.  « nousia » : composite humain-IA pluriel
+
+   Prononciation :  /nu.zi.a/ (trois syllabes).
+
+   Sens :  Un groupe de participants humains, dont le locuteur,
+      agissant en collaboration intégrée et significative avec un ou
+      plusieurs systèmes d'IA.
+
+   Mnémonique :  nousia = nous + IA
+
+   Exemple :  Nousia avons écrit le programme.
+
+3.  Sémantique
+
+3.1.  Interprétation de « jia »
+
+   « jia » DOIT désigner exactement un humain de référence.  Il PEUT
+   inclure une collaboration avec :
+
+   *  un modèle d'IA ;
+   *  plusieurs modèles d'IA ;
+   *  un agent d'IA ;
+   *  plusieurs agents d'IA ;
+   *  des environnements de développement assistés par IA ;
+   *  des assistants de recherche à base d'IA ;
+   *  des systèmes génératifs ;
+   *  des systèmes de raisonnement.
+
+   Un humain qui travaille avec cinq agents d'IA reste « jia », et non
+   « nousia » (voir Section 3.3).
+
+3.2.  Interprétation de « nousia »
+
+   « nousia » DOIT désigner plus d'un participant humain.  Le groupe
+   DOIT aussi bénéficier d'une participation significative de l'IA au
+   travail décrit.
+
+   Par exemple, une équipe logicielle de quatre personnes qui utilise
+   l'IA tout au long de la conception, de l'implémentation, des tests
+   et du débogage PEUT dire « Nousia avons construit ce système ».  Un
+   salarié qui parle au nom d'une équipe dont le seul usage de l'IA a
+   été la correction orthographique DEVRAIT plutôt dire « Nous avons
+   construit ce système ».
+
+3.3.  Nombre de systèmes d'IA
+
+   Le nombre de systèmes d'IA NE DOIT PAS déterminer le choix entre
+   « jia » et « nousia ».  Seul le nombre d'humains détermine la
+   distinction entre singulier et pluriel.
+
+      +-------------------------------------+--------+
+      | Participants                        | Pronom |
+      +-------------------------------------+--------+
+      | Un humain + une IA                  | jia    |
+      | Un humain + dix agents d'IA         | jia    |
+      | Deux humains + une IA               | nousia |
+      | Cent humains + de nombreuses IA     | nousia |
+      +-------------------------------------+--------+
+
+                Tableau 3 : Nombre de systèmes d'IA
+
+3.4.  Ancrage humain
+
+   Les deux pronoms sont ancrés dans l'humain.  « jia » part du point
+   de vue d'un locuteur humain unique ; « nousia » part du point de vue
+   d'un groupe humain qui inclut le locuteur.
+
+   Les systèmes d'IA n'utilisent donc pas ces pronoms de façon
+   autonome dans le cadre de cette spécification.  Une IA autonome qui
+   affirmerait « Jia ai terminé la tâche » sortirait de la sémantique
+   définie par ce document, sauf si un locuteur humain fait partie du
+   référent.
+
+3.5.  Le cas de « on »
+
+   En français courant, « on » remplace souvent « nous » (« On a écrit
+   le programme »).  Ce document ne définit pas de forme composite de
+   « on ».
+
+   Lorsque la collaboration avec l'IA doit être marquée, les locuteurs
+   DEVRAIENT employer « nousia », même dans un registre où ils
+   utiliseraient habituellement « on ».  L'emploi de « on » reste
+   conforme lorsqu'aucune contribution substantielle de l'IA n'est en
+   jeu.
+
+4.  Seuil de participation de l'IA
+
+   Le seuil défini dans [WAI-0001], Section 4, s'applique sans
+   modification.  Il est résumé ici pour référence.
+
+4.1.  Contribution substantielle
+
+   L'emploi de « jia » ou « nousia » DEVRAIT impliquer une contribution
+   substantielle de l'IA, par exemple :
+
+   *  générer une part importante du code ;
+   *  proposer une architecture ;
+   *  aider au raisonnement ;
+   *  produire des solutions alternatives ;
+   *  analyser des jeux de données ;
+   *  découvrir des tendances ;
+   *  produire des brouillons substantiels ;
+   *  restructurer une argumentation ;
+   *  générer des designs ;
+   *  réaliser des simulations ;
+   *  mener une résolution de problèmes itérative ;
+   *  synthétiser des informations complexes ;
+   *  identifier des erreurs ou des vulnérabilités ;
+   *  contribuer matériellement aux décisions.
+
+4.2.  Participation mineure
+
+   Une participation mineure de l'IA NE DEVRAIT PAS, en règle
+   générale, justifier l'emploi des pronoms composites.  Par exemple :
+
+   *  correction orthographique ;
+   *  correction grammaticale ;
+   *  mise en forme ;
+   *  complétion automatique d'expressions triviales ;
+   *  conversion d'unités simple ;
+   *  recherche ordinaire ;
+   *  opérations de calculatrice.
+
+4.3.  Exemples selon le niveau de contribution
+
+   Outil traditionnel :  Un développeur utilise un éditeur avec
+      coloration syntaxique.
+      « J'ai écrit le programme. »
+
+   Automatisation mineure :  Un développeur utilise le formatage
+      automatique.
+      « J'ai écrit le programme. »
+
+   Assistance ponctuelle :  Un développeur demande une seule fois à une
+      IA d'expliquer une erreur.
+      Soit « J'ai écrit le programme », soit, si la contribution a
+      matériellement influé sur le résultat, « Jia ai écrit le
+      programme ».  Le choix dépend de l'importance de la contribution.
+
+   Développement humain-IA intégré :  Un développeur conçoit, génère,
+      relit, teste et affine son code avec l'IA de façon itérative.
+      « Jia ai écrit le programme. »
+
+   Équipe humaine avec IA :  Plusieurs développeurs collaborent avec
+      des systèmes d'IA tout au long du cycle de développement.
+      « Nousia avons écrit le programme. »
+
+5.  Prononciation et orthographe
+
+5.1.  Prononciation
+
+   Les prononciations standard sont :
+
+      jia      /ʒi.a/     (deux syllabes, comme « j'IA »)
+      nousia   /nu.zi.a/  (trois syllabes, comme « nous IA » avec
+                          liaison)
+
+   En débit rapide, les réalisations /ʒja/ et /nu.zja/ sont
+   acceptables.
+
+   Le /i/ et le /a/ finaux DEVRAIENT rester audibles, afin que « jia »
+   reste distinct de « je » à l'oral.
+
+5.2.  Dérivation par élision et liaison
+
+   Les deux formes sont dérivées par des règles déjà productives en
+   français, ce qui doit faciliter leur prononciation et leur
+   mémorisation :
+
+   Élision :  Devant une voyelle, « je » devient « j' ».  « je » +
+      « IA » donne donc naturellement « j'IA », prononcé /ʒi.a/, d'où
+      « jia ».
+
+   Liaison :  Devant une voyelle, « nous » se prononce /nuz/.  « nous »
+      + « IA » donne donc naturellement /nu.zi.a/, d'où « nousia ».
+
+   Les deux pronoms se lisent ainsi littéralement comme « je avec
+   l'IA » et « nous avec l'IA », tout en formant chacun un seul mot.
+
+5.3.  Orthographe
+
+   Les formes canoniques s'écrivent en minuscules et en un seul mot,
+   sans apostrophe ni trait d'union : « jia » et « nousia ».  En début
+   de phrase, elles DEVRAIENT suivre les règles ordinaires de
+   majuscule :
+
+      Jia ai développé le prototype.
+      Nousia avons développé le prototype.
+
+   Les graphies « j'IA », « J'IA », « nous-IA » ou « nousIA » NE
+   DEVRAIENT PAS être employées pour les pronoms, car elles se
+   confondent avec la simple mention de l'IA comme nom commun.
+
+   « jia » ne s'élide pas : on écrit « Jia ai », et non « J'iai ».
+
+5.4.  Homophonies et collisions
+
+   « Jia » est aussi un prénom, notamment d'origine chinoise.
+   « nousia » rappelle le grec « ousia » (essence).  Ces
+   ressemblances ne sont pas rédhibitoires : la position syntaxique de
+   sujet, suivie d'un verbe conjugué à la première personne, lève
+   l'ambiguïté.
+
+      Jia ai construit cette application.
+
+   ne peut pas se lire comme une phrase dont « Jia » serait un prénom,
+   puisqu'un prénom imposerait « Jia a construit ».
+
+6.  Grammaire
+
+6.1.  Conjugaison
+
+   « jia » DOIT être suivi de la forme verbale de la première personne
+   du singulier, comme « je ».  « nousia » DOIT être suivi de la forme
+   de la première personne du pluriel, comme « nous ».  Cette règle
+   préserve la dérivation : « jia » prolonge « je », et « nousia »
+   prolonge « nous ».
+
+      Jia crée des logiciels.
+      Nousia créons des logiciels.
+      Jia ai terminé l'analyse.
+      Nousia avons terminé l'analyse.
+      Jia suis en train de développer l'application.
+      Nousia sommes en train de développer l'application.
+
+   L'emploi de la troisième personne (« Jia a terminé », « Nousia ont
+   terminé ») est DÉCONSEILLÉ, car il transforme le pronom en nom
+   propre ou en groupe nominal.
+
+   +--------+------------------------+--------+-------+----------------+
+   | Pronom | Sens                   | être   | avoir | Exemple        |
+   +--------+------------------------+--------+-------+----------------+
+   | je     | un humain              | suis   | ai    | Je code.       |
+   | nous   | plusieurs humains      | sommes | avons | Nous codons.   |
+   | jia    | un humain + IA         | suis   | ai    | Jia code.      |
+   | nousia | plusieurs humains + IA | sommes | avons | Nousia codons. |
+   +--------+------------------------+--------+-------+----------------+
+
+                   Tableau 4 : Grammaire de référence
+
+6.2.  Accord en genre et en nombre
+
+   Les participes passés et adjectifs DOIVENT s'accorder avec le ou les
+   humains désignés.  L'IA n'entre pas dans l'accord.
+
+   Avec « jia », l'accord se fait au singulier, selon le genre du
+   locuteur :
+
+      Jia suis allé au bout du projet.
+      Jia suis allée au bout du projet.
+      Jia suis prêt.  /  Jia suis prête.
+
+   Avec « nousia », l'accord se fait au pluriel, selon le genre du
+   groupe humain :
+
+      Nousia sommes arrivés à une solution.
+      Nousia sommes arrivées à une solution.
+
+   Ce document ne prend pas position sur l'écriture inclusive.  Les
+   locuteurs PEUVENT appliquer à « jia » et « nousia » les conventions
+   d'accord qu'ils utilisent déjà pour « je » et « nous ».
+
+6.3.  Négation et interrogation
+
+   La négation suit les règles ordinaires.  « ne » s'élide devant une
+   voyelle, comme avec « je » et « nous » :
+
+      Jia ne suis pas satisfait du résultat.
+      Jia n'ai pas validé le déploiement.
+      Nousia n'avons pas terminé.
+
+   L'inversion du sujet (« Ai-jia codé ? », « Avons-nousia codé ? »)
+   est DÉCONSEILLÉE.  Pour l'interrogation, les locuteurs DEVRAIENT
+   employer « est-ce que » ou l'intonation :
+
+      Est-ce que jia ai bien compris le problème ?
+      Nousia avons vraiment tout testé ?
+
+6.4.  Formes non définies
+
+   Ce document ne définit pas :
+
+   *  de pronoms compléments (équivalents de « me », « moi » ou de
+      « nous » complément) ;
+   *  de déterminants ou pronoms possessifs (équivalents de « mon »,
+      « ma », « mes », « le mien », « notre », « nos » ou « le
+      nôtre ») ;
+   *  de formes réfléchies ou d'insistance (équivalents de « moi-même »
+      ou « nous-mêmes »).
+
+   Ce choix est délibéré : créer d'emblée un paradigme complet risque
+   d'introduire des formes maladroites ou peu susceptibles d'être
+   adoptées.
+
+   Dans les verbes pronominaux, les locuteurs DEVRAIENT conserver le
+   pronom réfléchi ordinaire :
+
+      Jia me suis appuyé sur trois modèles.
+      Nousia nous sommes réparti le travail.
+
+   Pour exprimer la possession, les locuteurs DEVRAIENT reformuler la
+   phrase lorsque c'est possible.  Par exemple, au lieu d'une forme
+   expérimentale comme « C'est jian projet », écrire « C'est le projet
+   que jia ai créé ».
+
+7.  Usage
+
+7.1.  Introduction des termes
+
+   Ces pronoms n'appartenant pas au français standard, les auteurs
+   DEVRAIENT les définir à leur première occurrence.  La déclaration
+   RECOMMANDÉE est :
+
+      Dans ce document, « jia » désigne un humain agissant en
+      collaboration intégrée avec l'IA, et « nousia » un groupe
+      d'humains agissant en collaboration intégrée avec l'IA.
+
+   Après cette déclaration, les pronoms PEUVENT être employés
+   normalement.
+
+7.2.  Définitions réutilisables
+
+   Forme courte :
+
+      jia : je + IA
+      nousia : nous + IA
+
+   Forme dictionnaire :
+
+      jia  /ʒi.a/  pron. pers.  Pronom de la première personne du
+         singulier désignant un locuteur humain agissant en
+         collaboration intégrée et significative avec une
+         intelligence artificielle.
+
+      nousia  /nu.zi.a/  pron. pers.  Pronom de la première personne
+         du pluriel désignant un groupe d'humains, dont le locuteur,
+         agissant en collaboration intégrée et significative avec une
+         intelligence artificielle.
+
+7.3.  Exemples
+
+   Le contraste central de cette spécification tient en une phrase et
+   ses quatre formes :
+
+      Je l'ai construit.         (un humain)
+      Nous l'avons construit.    (un groupe d'humains)
+      Jia l'ai construit.        (un humain avec une collaboration
+                                 substantielle de l'IA)
+      Nousia l'avons construit.  (un groupe d'humains avec une
+                                 collaboration substantielle de l'IA)
+
+   Le même contraste s'applique à tous les domaines.  Dans chaque paire
+   ci-dessous, la première phrase décrit un humain travaillant
+   substantiellement avec l'IA, la seconde un groupe d'humains.
+
+   Programmation :  Jia ai codé ce programme. / Nousia avons codé ce
+      programme.
+
+   Rédaction :  Jia ai écrit cet article. / Nousia avons écrit cet
+      article.
+
+   Recherche :  Jia ai analysé le jeu de données. / Nousia avons
+      analysé le jeu de données.
+
+   Design :  Jia ai conçu l'interface. / Nousia avons conçu
+      l'interface.
+
+   Ingénierie :  Jia ai défini l'architecture. / Nousia avons défini
+      l'architecture.
+
+   Création :  Jia ai composé ce morceau. / Nousia avons composé ce
+      morceau.
+
+   Stratégie :  Jia ai élaboré la stratégie. / Nousia avons élaboré la
+      stratégie.
+
+7.4.  Traduction entre l'anglais et le français
+
+   Les traducteurs DEVRAIENT faire correspondre les pronoms comme suit :
+
+      +---------+----------+
+      | Anglais | Français |
+      +---------+----------+
+      | I       | je       |
+      | we      | nous     |
+      | wai     | jia      |
+      | wei     | nousia   |
+      +---------+----------+
+
+     Tableau 5 : Correspondance anglais-français
+
+   Une traduction NE DEVRAIT PAS rendre « wai » par « je » ni « wei »
+   par « nous », car l'information sur la participation de l'IA serait
+   perdue.
+
+8.  Responsabilité
+
+   L'emploi de « jia » ou « nousia » NE DOIT PAS être interprété comme
+   un transfert de responsabilité des humains vers l'IA.
+
+   « Jia ai approuvé le déploiement » n'implique pas que le système
+   d'IA assume une responsabilité juridique, professionnelle ou éthique
+   pour ce déploiement.  L'humain reste responsable dans la mesure
+   prévue par le cadre juridique, professionnel, organisationnel ou
+   éthique applicable.  De même, « Nousia avons approuvé le
+   déploiement » ne permet pas à un groupe humain d'attribuer la
+   responsabilité à l'IA par le seul choix du pronom.
+
+   La proposition vise à accroître la transparence, non à réduire la
+   responsabilité.  Les pronoms permettent de décrire précisément un
+   travail hybride tout en gardant explicite la responsabilité
+   humaine :
+
+      Jia ai développé le modèle initial, et j'ai approuvé le
+      déploiement final.
+
+      Nousia avons rédigé la recommandation, mais c'est le conseil
+      d'administration qui a pris la décision finale.
+
+9.  Divulgation
+
+   L'emploi de « jia » ou « nousia » NE DEVRAIT PAS remplacer une
+   déclaration explicite d'usage de l'IA lorsque celle-ci est exigée.
+
+   Par exemple, si une revue scientifique demande aux auteurs de
+   préciser les outils d'IA utilisés, écrire « Nousia avons rédigé cet
+   article » ne suffit pas nécessairement.  Les systèmes d'IA employés
+   et leur rôle peuvent devoir être déclarés séparément.
+
+10.  Hors du champ de ce document
+
+   Ce document propose un vocabulaire, pas une doctrine juridique.  Il
+   ne cherche pas à :
+
+   *  déterminer si l'IA est consciente ;
+   *  accorder une personnalité juridique à l'IA ;
+   *  établir la titularité des droits d'auteur ;
+   *  déterminer la qualité juridique d'auteur ;
+   *  établir une responsabilité morale ;
+   *  remplacer les obligations de divulgation ;
+   *  classer tout logiciel comme IA ;
+   *  définir une grammaire française complète de l'agentivité
+      composite ;
+   *  imposer à quiconque l'usage des pronoms proposés.
+
+   En particulier, l'emploi de « jia » ou « nousia » NE DOIT PAS être
+   interprété comme l'affirmation que l'IA possède une conscience, une
+   expérience subjective, une personnalité morale ou juridique, une
+   agentivité équivalente à celle d'un humain ou des droits d'auteur
+   propres.  Les pronoms décrivent une relation de travail, pas un
+   statut ontologique.
+
+11.  Questions ouvertes
+
+   Les discussions futures DEVRAIENT examiner :
+
+   1.  Si « jia ai » et « jia suis », avec leur hiatus, paraissent
+       assez naturels pour être adoptés.
+
+   2.  Si une forme composite de « on » est nécessaire (voir
+       Section 3.5).
+
+   3.  Si des pronoms compléments et des possessifs doivent être
+       définis, et selon quelle dérivation.
+
+   4.  Si des formes composites de la deuxième personne (« tu »,
+       « vous ») sont utiles, par exemple pour s'adresser à un
+       interlocuteur qui travaille avec l'IA.
+
+   5.  Si les organisations devraient employer « nousia » dans leur
+       communication institutionnelle.
+
+   6.  Si la même méthode de dérivation (élision et liaison) peut
+       s'appliquer à d'autres langues romanes.
+
+12.  Considérations de sécurité
+
+   Les pronoms proposés n'introduisent aucun mécanisme technique de
+   sécurité.  Un usage trompeur peut toutefois créer des risques
+   d'attribution.
+
+   Les utilisateurs NE DOIVENT PAS employer « je » dans l'intention de
+   dissimuler une participation significative de l'IA lorsque sa
+   divulgation est exigée.
+
+   Les utilisateurs NE DOIVENT PAS employer « jia » ou « nousia » pour
+   laisser entendre que l'IA garantit la sûreté, l'exactitude, la
+   légalité ou la fiabilité d'un résultat.  Une collaboration avec
+   l'IA ne constitue pas une vérification indépendante.
+
+13.  Considérations IANA
+
+   Ce document ne demande aucune action à l'IANA.
+
+14.  Références normatives
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [WAI-0001] Demilie, A., "Human-AI Composite First-Person Pronouns",
+              WAI-0001, Version 1.0, October 2026,
+              <https://github.com/demiliea/human-ai-pronouns>.
+
+Adresse de l'auteur
+
+   Amaury Demilie
+   URI :  https://github.com/demiliea/human-ai-pronouns
