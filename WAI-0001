@@ -1,1241 +1,756 @@
-# WAI-0001  
-## Human–AI Composite First-Person Pronouns
+WAI Series                                                    A. Demilie
+Document: WAI-0001                                          October 2026
+Category: Experimental
+Version: 1.0
+
+
+               Human-AI Composite First-Person Pronouns
+
+Abstract
+
+   This document proposes two new English first-person pronouns that
+   mark human-AI composite agency: "wai" (/waɪ/), for one human acting
+   in integrated collaboration with artificial intelligence, and "wei"
+   (/weɪ/), for a group of humans acting in integrated collaboration
+   with artificial intelligence.  Together with "I" and "we", they form
+   a four-way distinction between individual and collective agency,
+   with and without substantial AI participation.  This document
+   specifies the semantics, pronunciation, orthography, grammatical
+   behavior, usage criteria, and limitations of the two pronouns.
+
+Status of This Memo
+
+   This document is not an IETF RFC and has not been published by the
+   RFC Editor.  It follows RFC conventions for clarity and precision.
+
+   This document is an experimental linguistic proposal.  It does not
+   claim that "wai" or "wei" are established English pronouns.  Its
+   purpose is to define the terms precisely enough that they can be
+   tested consistently in real-world communication.  Adoption is
+   expected to occur, if at all, through voluntary use.
+
+   Discussion of this document takes place at
+   <https://github.com/demiliea/human-ai-pronouns>.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Motivation
+     1.2.  Transparency
+     1.3.  Requirements Language
+     1.4.  Terminology
+   2.  The Pronoun System
+     2.1.  Overview
+     2.2.  Formal Mapping
+     2.3.  "I": Human Singular
+     2.4.  "we": Human Plural
+     2.5.  "wai": Human-AI Singular Composite
+     2.6.  "wei": Human-AI Plural Composite
+   3.  Semantics
+     3.1.  Interpretation of "wai"
+     3.2.  Interpretation of "wei"
+     3.3.  Number of AI Systems
+     3.4.  Human Anchoring
+     3.5.  AI as Extension Versus Participant
+   4.  Threshold for AI Participation
+     4.1.  Substantial Contribution
+     4.2.  Minor Involvement
+     4.3.  Authorship Versus Tool Use
+     4.4.  Examples by Contribution Level
+   5.  Pronunciation and Orthography
+     5.1.  Pronunciation
+     5.2.  Orthography
+     5.3.  Homophony
+     5.4.  Rationale for the Spellings
+   6.  Grammar
+     6.1.  Verb Agreement
+     6.2.  Object, Possessive, and Reflexive Forms
+   7.  Usage
+     7.1.  Introducing the Terms
+     7.2.  Definitions for Reuse
+     7.3.  Minimal Implementation
+     7.4.  Examples
+   8.  Responsibility and Accountability
+   9.  Disclosure
+   10. Non-Goals
+   11. Adoption and Evaluation
+     11.1.  Adoption Strategy
+     11.2.  Success Criteria
+   12. Open Issues
+   13. Future Work
+   14. Security Considerations
+   15. IANA Considerations
+   16. Normative References
+   Author's Address
+
+1.  Introduction
+
+   Standard English first-person pronouns distinguish one speaker ("I")
+   from a group that includes the speaker ("we").  They do not mark
+   whether the work being described was produced through meaningful
+   interaction with an artificial intelligence (AI) system.
+
+   Increasingly, human work is produced in exactly that way.  In such
+   cases, neither "I" nor "we" necessarily communicates the structure
+   of the authorship or agency accurately.  This document introduces
+   two pronouns, "wai" and "wei", that make this form of collaboration
+   linguistically visible.  The goal is not to redefine humanity,
+   personhood, or responsibility.
+
+   This document is intended for AI practitioners, developers,
+   researchers, writers, designers, standards communities, and users of
+   human-AI collaborative systems.
 
-**Category:** Experimental  
-**Status:** Proposal  
-**Version:** 1.0  
-**Language:** English  
-**Intended audience:** AI practitioners, developers, researchers, writers, designers, standards communities, and users of human–AI collaborative systems
+1.1.  Motivation
 
----
+   "I wrote the program" means that one speaker claims authorship.
+   "We wrote the program" means that the speaker belongs to a group
+   responsible for the work.
 
-## Abstract
+   AI-assisted production creates additional cases.  A developer may
+   define a system architecture, discuss implementation approaches with
+   an AI system, generate code through the AI, reject portions of that
+   code, debug the result, request alternative solutions, test them,
+   and ultimately determine the final implementation.
 
-This document proposes two new English first-person pronouns for explicitly representing human–AI composite agency:
+   Saying "I coded this program" may conceal a meaningful aspect of the
+   production process.  Saying "We coded this program" may incorrectly
+   suggest that the speaker is referring to multiple humans or to
+   conventional collaborators.  A similar ambiguity exists when an
+   entire human team collaborates extensively with AI.
 
-**wai** /waɪ/  
-A single human acting in integrated collaboration with artificial intelligence.
+1.2.  Transparency
 
-**wei** /weɪ/  
-A group of humans acting in integrated collaboration with artificial intelligence.
+   One objective of this proposal is to make meaningful AI
+   participation more visible.  Compare:
 
-The proposal addresses a linguistic distinction not currently represented by standard English pronouns.
+      I produced this analysis.
+      Wai produced this analysis.
 
-Existing English distinguishes primarily between:
+   The second form communicates additional information about the
+   production process in a single word.  Similarly, "We designed the
+   system" and "Wei designed the system" distinguish a conventional
+   human team from an AI-integrated team.
 
-**I** — one human speaker
+1.3.  Requirements Language
 
-and
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
-**we** — multiple human speakers or members of a group.
+   Because this document specifies language use rather than a protocol,
+   these key words describe conforming usage of the pronouns.
 
-Increasingly, however, human work is performed through substantial interaction with artificial intelligence systems. In such situations, neither **I** nor **we** necessarily communicates the structure of the authorship or agency accurately.
+1.4.  Terminology
 
-This RFC therefore defines the following four-way distinction:
+   Human:  A human participant responsible for initiating, directing,
+      evaluating, or accepting an action.
 
-| Pronoun | Meaning |
-|---|---|
-| **I** | one human |
-| **we** | multiple humans |
-| **wai** | one human + AI |
-| **wei** | multiple humans + AI |
+   AI:  An artificial intelligence system capable of contributing
+      meaningfully to cognitive, creative, analytical, generative, or
+      technical work.
 
-This document specifies the semantics, pronunciation, grammatical behavior, usage criteria, and limitations of **wai** and **wei**.
+   Composite agency:  An activity whose result emerges from meaningful
+      interaction between human judgment and AI-generated or
+      AI-mediated contributions.
 
----
+   Integrated collaboration:  A workflow in which AI materially
+      influences the resulting output, rather than merely providing
+      passive or mechanical functionality.
 
-# 1. Status of This Memo
+   Substantial AI contribution:  AI participation that meets the
+      threshold described in Section 4.
 
-This document is an experimental linguistic proposal.
+2.  The Pronoun System
 
-It does not claim that **wai** or **wei** are currently established English pronouns.
+2.1.  Overview
 
-The purpose of this RFC is to define the terms sufficiently precisely that they can be tested consistently in real-world communication.
+   The system consists of four first-person subject forms, organized
+   along two dimensions: the number of humans represented, and whether
+   substantial AI collaboration is present.
 
-Adoption is expected to occur, if at all, through voluntary use.
+      +-----------------+-----------------+-----------------+
+      | Human           | No substantial  | Substantial AI  |
+      | participants    | AI contribution | contribution    |
+      +-----------------+-----------------+-----------------+
+      | One human       | I               | wai             |
+      | Multiple humans | we              | wei             |
+      +-----------------+-----------------+-----------------+
 
----
+                  Table 1: The Four-Form Pronoun System
 
-# 2. Terminology
+   The presence of AI alone is not sufficient to require "wai" or
+   "wei".  The AI contribution MUST be meaningful enough to affect the
+   intellectual, creative, analytical, or technical result (see
+   Section 4).
 
-The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHOULD**, **SHOULD NOT**, **MAY**, and **OPTIONAL** in this document are to be interpreted as normative requirements of this specification.
+   Symbolically, where H denotes one human, H+ denotes more than one
+   human, and AI denotes substantial AI collaboration:
 
-For purposes of this RFC:
+      I   -> H
+      we  -> H+
+      wai -> H  + AI
+      wei -> H+ + AI
 
-**Human** refers to a human participant responsible for initiating, directing, evaluating, or accepting an action.
+2.2.  Formal Mapping
 
-**AI** refers to an artificial intelligence system capable of contributing meaningfully to cognitive, creative, analytical, generative, or technical work.
+   Let H be the number of human participants represented by the
+   pronoun, and let A be true if substantial AI collaboration is
+   present.
 
-**Composite agency** refers to an activity whose result emerges from meaningful interaction between human judgment and AI-generated or AI-mediated contributions.
+      +----+-------+---------+
+      | H  | A     | Pronoun |
+      +----+-------+---------+
+      | 1  | false | I       |
+      | >1 | false | we      |
+      | 1  | true  | wai     |
+      | >1 | true  | wei     |
+      +----+-------+---------+
 
-**Integrated collaboration** refers to a workflow in which AI materially influences the resulting output rather than merely providing passive or mechanical functionality.
+          Table 2: Formal Mapping
 
----
+   Equivalently, in pseudocode:
 
-# 3. Motivation
+      if humans == 1 and not ai_collaboration:
+          pronoun = "I"
+      if humans > 1 and not ai_collaboration:
+          pronoun = "we"
+      if humans == 1 and ai_collaboration:
+          pronoun = "wai"
+      if humans > 1 and ai_collaboration:
+          pronoun = "wei"
 
-English currently provides a straightforward distinction between singular and plural first-person agency.
+2.3.  "I": Human Singular
 
-> I wrote the program.
+   Meaning:  One human speaker.
 
-means that one speaker claims authorship.
+   Example:  I wrote the program.
 
-> We wrote the program.
+2.4.  "we": Human Plural
 
-means that the speaker belongs to a group responsible for the work.
+   Meaning:  The speaker and one or more additional human participants.
 
-AI-assisted production creates additional cases.
+   Example:  We wrote the program.
 
-A developer may define a system architecture, discuss implementation approaches with an AI system, generate code through the AI, reject portions of that code, debug the result, request alternative solutions, test them, and ultimately determine the final implementation.
+2.5.  "wai": Human-AI Singular Composite
 
-Saying:
+   Pronunciation:  /waɪ/, homophonous with English "why".
 
-> I coded this program.
+   Meaning:  One human speaker acting through meaningful integrated
+      collaboration with one or more AI systems.
 
-may conceal a meaningful aspect of the production process.
+   Mnemonic:  wai = I + AI
 
-Saying:
+   Example:  Wai wrote the program.
 
-> We coded this program.
+2.6.  "wei": Human-AI Plural Composite
 
-may incorrectly suggest that the speaker is referring to multiple humans or conventional collaborators.
+   Pronunciation:  /weɪ/, homophonous with English "way".
 
-A similar ambiguity exists when an entire human team collaborates extensively with AI.
+   Meaning:  A group of human participants, including the speaker,
+      acting through meaningful integrated collaboration with one or
+      more AI systems.
 
-This RFC introduces explicit linguistic markers for both cases.
+   Mnemonic:  wei = we + AI
 
----
+   Example:  Wei wrote the program.
 
-# 4. Proposed Pronoun System
+3.  Semantics
 
-The system consists of four first-person subject categories.
+3.1.  Interpretation of "wai"
 
-## 4.1 Human Singular
+   "wai" MUST indicate exactly one human reference point.  It MAY
+   include collaboration with:
 
-**I**
+   *  one AI model;
+   *  multiple AI models;
+   *  an AI agent;
+   *  multiple AI agents;
+   *  AI-assisted development environments;
+   *  AI research assistants;
+   *  generative systems;
+   *  reasoning systems.
 
-Meaning:
+   One human interacting with five AI agents is still "wai", not "wei"
+   (see Section 3.3).
 
-One human speaker.
+3.2.  Interpretation of "wei"
 
-Example:
+   "wei" MUST indicate more than one human participant.  The group MUST
+   also have meaningful AI participation in the work being described.
 
-> I wrote the program.
+   For example, a four-person software team that uses AI extensively
+   throughout architecture, implementation, testing, and debugging MAY
+   say "Wei built this system".  A company employee speaking on behalf
+   of a team whose only AI involvement was spellchecking SHOULD instead
+   say "We built this system".
 
----
+3.3.  Number of AI Systems
 
-## 4.2 Human Plural
+   The number of AI systems MUST NOT determine whether "wai" or "wei"
+   is used.  Only the number of humans determines the singular/plural
+   distinction.
 
-**we**
+      +--------------------------------------+---------+
+      | Participants                         | Pronoun |
+      +--------------------------------------+---------+
+      | One human + one AI                   | wai     |
+      | One human + ten AI agents            | wai     |
+      | Two humans + one AI                  | wei     |
+      | One hundred humans + many AI systems | wei     |
+      +--------------------------------------+---------+
 
-Meaning:
+                    Table 3: Number of AI Systems
 
-The speaker and one or more additional human participants.
+3.4.  Human Anchoring
 
-Example:
+   Both pronouns are human-anchored.  "wai" begins from the perspective
+   of one human speaker; "wei" begins from the perspective of a human
+   group that contains the speaker.
 
-> We wrote the program.
+   AI systems therefore do not independently use these pronouns under
+   this specification.  An autonomous AI claiming "Wai completed the
+   task" falls outside the semantics defined by this document, unless a
+   human speaker is part of the referent.
 
----
+3.5.  AI as Extension Versus Participant
 
-## 4.3 Human–AI Singular Composite
+   This specification deliberately permits more than one interpretation
+   of the human-AI relationship.  Users may conceptualize AI as a
+   collaborator, a cognitive extension, an augmentation layer, an
+   external reasoning system, a creative partner, or an interactive
+   tool.
 
-**wai**
+   The pronouns do not require agreement on which philosophical model
+   is correct.  They indicate only that the contribution was
+   sufficiently integrated to merit explicit linguistic recognition.
 
-Pronunciation:
+4.  Threshold for AI Participation
 
-**/waɪ/**
+4.1.  Substantial Contribution
 
-Equivalent in sound to English **why**.
+   Use of "wai" or "wei" SHOULD imply substantial AI contribution.
+   Examples of substantial contribution include:
 
-Meaning:
+   *  generating significant portions of code;
+   *  proposing architecture;
+   *  assisting with reasoning;
+   *  generating alternative solutions;
+   *  analyzing datasets;
+   *  discovering patterns;
+   *  producing substantial drafts;
+   *  restructuring arguments;
+   *  generating designs;
+   *  performing simulations;
+   *  conducting iterative problem solving;
+   *  synthesizing complex information;
+   *  identifying errors or vulnerabilities;
+   *  contributing materially to decisions.
 
-One human speaker acting through meaningful integrated collaboration with one or more AI systems.
+4.2.  Minor Involvement
 
-Example:
+   Minor AI involvement SHOULD NOT normally trigger use of the
+   composite pronouns.  Examples include:
 
-> Wai wrote the program.
+   *  spell checking;
+   *  grammar correction;
+   *  formatting;
+   *  autocompletion of trivial expressions;
+   *  simple unit conversion;
+   *  ordinary search;
+   *  basic calculator operations.
 
-Conceptually:
+4.3.  Authorship Versus Tool Use
 
-**wai = I + AI**
+   This specification does not attempt to establish a universal
+   philosophical boundary between a tool and a collaborator.  Instead,
+   "wai" and "wei" communicate the speaker's characterization of the
+   production process.
 
----
+   The relevant question is not "Was AI used?" but "Did AI participate
+   meaningfully in producing the result?"
 
-## 4.4 Human–AI Plural Composite
+   A compiler does not normally make a developer part of a composite
+   agent, and a calculator does not normally make an accountant part of
+   one.  An AI system that proposes, revises, challenges, generates,
+   evaluates, and materially influences an outcome may justify the
+   composite form.
 
-**wei**
+4.4.  Examples by Contribution Level
 
-Pronunciation:
+   Traditional tool:  A developer uses a syntax-highlighting editor.
+      "I wrote the program."
 
-**/weɪ/**
+   Minor automation:  A developer uses automatic formatting.
+      "I wrote the program."
 
-Equivalent in sound to English **way**.
+   AI assistance:  A developer asks an AI to explain an error once.
+      Either "I wrote the program" or, if the contribution materially
+      affected the result, "Wai wrote the program".  The choice depends
+      on the significance of the contribution.
 
-Meaning:
+   Integrated human-AI development:  A developer iteratively designs,
+      generates, reviews, tests, and refines code with AI.
+      "Wai wrote the program."
 
-A group of human participants acting through meaningful integrated collaboration with one or more AI systems.
+   Human team with AI:  Several developers collaborate with AI systems
+      throughout the development lifecycle.
+      "Wei wrote the program."
 
-Example:
+5.  Pronunciation and Orthography
 
-> Wei wrote the program.
+5.1.  Pronunciation
 
-Conceptually:
+   The standard pronunciations are:
 
-**wei = we + AI**
+      wai   /waɪ/   (as English "why")
+      wei   /weɪ/   (as English "way")
 
----
+   Distinct pronunciations are REQUIRED, because "wai" and "wei" MUST
+   remain distinguishable in spoken communication.  The spelling is
+   intentionally related while preserving a clear phonetic difference,
+   analogous to "why" versus "way".
 
-# 5. Core Semantic Model
+5.2.  Orthography
 
-The system can be represented as a two-dimensional distinction.
+   The canonical forms are lowercase: "wai" and "wei".  At the
+   beginning of a sentence they SHOULD follow ordinary English
+   capitalization rules:
 
-| Human participants | No substantial AI collaboration | Substantial AI collaboration |
-|---|---|---|
-| One human | **I** | **wai** |
-| Multiple humans | **we** | **wei** |
+      Wai developed the prototype.
+      Wei developed the prototype.
 
-This distinction is the core of the proposal.
+   They MUST NOT normally be written as acronyms ("WAI", "WEI"), unless
+   referring to the names of standards, organizations, protocols, or
+   other entities rather than to the pronouns themselves.
 
-The presence of AI alone is NOT sufficient to require **wai** or **wei**.
+5.3.  Homophony
 
-The AI contribution MUST be meaningful enough to affect the intellectual, creative, analytical, or technical result.
+   Both forms resemble existing words: "wai" sounds like "why", and
+   "wei" sounds like "way".  This is not necessarily disqualifying.
+   English already contains many homophones, such as right/write,
+   their/there, two/too, and sea/see, and syntactic position usually
+   resolves the intended meaning.
 
----
+   "Wai built this application" cannot naturally be read as "Why built
+   this application", and "Wei developed the model" is syntactically
+   distinct from ordinary uses of "way".
 
-# 6. Canonical Examples
+5.4.  Rationale for the Spellings
 
-## 6.1 Programming
+   The spelling "wai" was chosen because it:
 
-> I coded this program.
+   *  is short;
+   *  is visually distinct from "I" and "we";
+   *  contains the sequence "AI";
+   *  can suggest "I + AI" and human-AI integration;
+   *  has an easily pronounceable English form;
+   *  is immediately distinguishable from "we" when spoken.
 
-One human created the program without substantial AI contribution.
+   The spelling "wei" is intended as the plural counterpart to "wai":
 
-> We coded this program.
+      wai : I :: wei : we
 
-Multiple humans created the program without substantial AI contribution.
+   The pair preserves visual symmetry while remaining phonetically
+   distinguishable, creating both semantic and phonological contrast.
 
-> Wai coded this program.
+6.  Grammar
 
-One human created the program through substantial collaboration with AI.
+6.1.  Verb Agreement
 
-> Wei coded this program.
+   For ordinary verbs, "wai" and "wei" SHOULD take the uninflected
+   present form, following the agreement pattern of "we" and "you":
 
-A human team created the program through substantial collaboration with AI.
+      Wai create software.
+      Wei create software.
+      Wai have completed the analysis.
+      Wei have completed the analysis.
 
----
+   Third-person singular inflection ("Wai creates software", "Wei
+   creates software") is NOT RECOMMENDED.
 
-# 7. Pronunciation
+   For the verb "to be", "wai" takes "am" and "wei" takes "are".  This
+   preserves the underlying derivation: "wai" extends "I" (I am ->
+   wai am), and "wei" extends "we" (we are -> wei are).
 
-The standardized pronunciations proposed by this RFC are:
+      Wai am developing the application.
+      Wei are developing the application.
 
-**wai** → /waɪ/
+   Past tense forms require no special treatment ("Wai built it", "Wei
+   built it").  The resulting reference grammar is:
 
-**wei** → /weɪ/
+   +---------+------------------+------+------+----------------------+
+   | Pronoun | Meaning          | Be   | Have | Example              |
+   +---------+------------------+------+------+----------------------+
+   | I       | one human        | am   | have | I am building it.    |
+   | we      | human group      | are  | have | We are building it.  |
+   | wai     | one human + AI   | am   | have | Wai am building it.  |
+   | wei     | human group + AI | are  | have | Wei are building it. |
+   +---------+------------------+------+------+----------------------+
 
-This distinction is REQUIRED because **wai** and **wei** MUST remain distinguishable in spoken communication.
+                     Table 4: Reference Grammar
 
-The contrast is therefore analogous to:
+6.2.  Object, Possessive, and Reflexive Forms
 
-**why** versus **way**.
+   This document does not define object forms (equivalents of "me" or
+   "us"), possessive forms (equivalents of "my", "mine", "our", or
+   "ours"), or reflexive forms (equivalents of "myself" or
+   "ourselves").  This is intentional: premature creation of an entire
+   paradigm may introduce forms that are linguistically awkward or
+   unlikely to gain adoption.
 
-The spelling is intentionally related while preserving a clear phonetic difference.
+   Where possession must be expressed, speakers SHOULD restructure the
+   sentence where practical.  For example, instead of an experimental
+   form such as "This is wair project", use "This is the project wai
+   created".
 
----
+   Candidate reflexive forms such as "waiself" and "weiselves" are
+   reserved for future experimentation and are not part of this
+   specification.  Future documents MAY define any of these forms if
+   actual usage demonstrates a need for them (see Section 13).
 
-# 8. Orthography
+7.  Usage
 
-The canonical lowercase forms are:
+7.1.  Introducing the Terms
 
-**wai**
+   Because these pronouns are not standard English, authors SHOULD
+   define them at first use.  The RECOMMENDED declaration is:
 
-**wei**
+      In this document, "wai" refers to one human acting in integrated
+      collaboration with AI, while "wei" refers to a group of humans
+      acting in integrated collaboration with AI.
 
-At the beginning of a sentence they SHOULD follow ordinary English capitalization rules:
+   After this declaration, the pronouns MAY be used normally.
 
-> Wai developed the prototype.
+7.2.  Definitions for Reuse
 
-> Wei developed the prototype.
+   Short form:
 
-They MUST NOT normally be written as acronyms:
+      wai: I + AI
+      wei: we + AI
 
-> WAI
+   Dictionary form:
 
-or:
+      wai  /waɪ/  pronoun.  A first-person pronoun referring to one
+         human speaker acting in meaningful integrated collaboration
+         with artificial intelligence.
 
-> WEI
+      wei  /weɪ/  pronoun.  A first-person pronoun referring to a group
+         of humans, including the speaker, acting in meaningful
+         integrated collaboration with artificial intelligence.
 
-unless referring to the names of standards, organizations, protocols, or other entities rather than to the pronouns themselves.
+7.3.  Minimal Implementation
 
----
+   A community wishing to experiment with this specification need adopt
+   only two rules:
 
-# 9. Verb Agreement
+   Rule 1:  Use "wai" when the intended meaning is one human plus
+      substantial AI collaboration.
 
-Both **wai** and **wei** SHOULD use the same general verb agreement pattern as **we** and **you**.
+   Rule 2:  Use "wei" when the intended meaning is multiple humans plus
+      substantial AI collaboration.
 
-For ordinary verbs, this means the uninflected present form.
+   Everything else MAY initially remain standard English.
 
-Correct:
+7.4.  Examples
 
-> Wai create software.
+   The central contrast of this specification is shown by one sentence
+   in its four forms:
 
-> Wei create software.
+      I built this.     (one human)
+      We built this.    (a group of humans)
+      Wai built this.   (one human with substantial AI collaboration)
+      Wei built this.   (a group of humans with substantial AI
+                        collaboration)
 
-> Wai have completed the analysis.
+   The same contrast applies across domains.  In each pair below, the
+   first sentence describes one human working substantially with AI,
+   and the second a group of humans working substantially with AI.
 
-> Wei have completed the analysis.
+   Programming:  Wai coded this program. / Wei coded this program.
 
-Not recommended:
+   Writing:  Wai wrote this article. / Wei wrote this article.
 
-> Wai creates software.
+   Research:  Wai analyzed the dataset. / Wei analyzed the dataset.
 
-> Wei creates software.
+   Design:  Wai designed the interface. / Wei designed the interface.
 
-For the verb **to be**, this RFC specifies:
+   Engineering:  Wai developed the architecture. / Wei developed the
+      architecture.
 
-> Wai am
+   Creative work:  Wai composed this piece. / Wei composed this piece.
 
-for **wai**
+   Strategic work:  Wai developed the strategy. / Wei developed the
+      strategy.
 
-and:
+8.  Responsibility and Accountability
 
-> Wei are
+   Use of "wai" or "wei" MUST NOT be interpreted as transferring
+   responsibility from humans to AI.
 
-for **wei**.
+   "Wai approved the deployment" does not imply that the AI system
+   assumes legal, professional, or ethical responsibility for the
+   deployment.  The human participant remains responsible to the extent
+   required by the applicable legal, professional, organizational, or
+   ethical framework.  Likewise, "Wei approved the deployment" does not
+   allow a human group to attribute responsibility to AI merely by
+   using the composite pronoun.
 
-Therefore:
+   The proposal aims to increase transparency, not to reduce
+   accountability.  The pronouns let speakers describe hybrid workflows
+   precisely while keeping human accountability explicit:
 
-> Wai am developing the application.
+      Wai developed the initial model, and I approved the final
+      deployment.
 
-> Wei are developing the application.
+      Wei drafted the recommendation, but the board made the final
+      decision.
 
-This rule preserves the underlying distinction:
+9.  Disclosure
 
-**wai** extends **I**
+   Use of "wai" or "wei" SHOULD NOT replace explicit AI disclosure when
+   such disclosure is required.
 
-while:
+   For example, if a scientific journal requires authors to state which
+   AI tools were used, writing "Wei prepared this paper" would not
+   necessarily satisfy that requirement.  The specific AI systems and
+   their roles may still need to be disclosed separately.
 
-**wei** extends **we**.
+10.  Non-Goals
 
-Accordingly:
+   This document proposes vocabulary, not legal doctrine.  It does not
+   attempt to:
 
-> I am  
-> wai am
+   *  define whether AI is conscious;
+   *  grant AI legal personhood;
+   *  establish copyright ownership;
+   *  determine legal authorship;
+   *  establish moral responsibility;
+   *  replace disclosure requirements;
+   *  classify all software as AI;
+   *  define a complete English grammar for composite agency;
+   *  require anyone to use the proposed pronouns.
 
-and:
+   In particular, use of "wai" or "wei" MUST NOT be interpreted as
+   asserting that AI possesses consciousness, subjective experience,
+   moral personhood, legal personhood, human-equivalent agency, or
+   independent authorship rights.  The pronouns describe a working
+   relationship, not an ontological status.
 
-> we are  
-> wei are
+11.  Adoption and Evaluation
 
-This is the RECOMMENDED grammatical model for version 1.0.
+11.1.  Adoption Strategy
 
----
+   Adoption SHOULD proceed experimentally, in four phases:
 
-# 10. Semantic Interpretation of “wai”
+   Phase 1, Individual Experimentation:  Users MAY begin employing
+      "wai" and "wei" in informal or technical contexts, with explicit
+      definitions (see Section 7.1).
 
-**wai** MUST indicate exactly one human reference point.
+   Phase 2, Community Testing:  Developer, research, design, and AI
+      communities MAY evaluate comprehensibility, pronunciation,
+      grammatical naturalness, usefulness, ambiguity, and adoption
+      friction.
 
-It MAY include collaboration with:
+   Phase 3, Corpus Observation:  If meaningful usage develops, actual
+      language patterns SHOULD be studied before additional forms are
+      standardized.
 
-- one AI model;
-- multiple AI models;
-- an AI agent;
-- multiple AI agents;
-- AI-assisted development environments;
-- AI research assistants;
-- generative systems;
-- reasoning systems.
+   Phase 4, Extension:  Future specifications MAY define object forms,
+      possessive forms, reflexive forms, contractions, style
+      recommendations, and machine-readable metadata equivalents.
 
-The number of AI systems does not alter the pronoun.
+11.2.  Success Criteria
 
-For example, one human interacting with five AI agents is still:
+   The proposal can be considered successful if users reliably
+   understand the following contrast without lengthy explanation:
 
-**wai**
+      I built it.
+      We built it.
+      Wai built it.
+      Wei built it.
 
-rather than:
+   Additional indicators include:
 
-**wei**.
+   *  spontaneous reuse;
+   *  low explanation cost;
+   *  successful spoken distinction;
+   *  use across multiple domains;
+   *  clear semantic value;
+   *  low grammatical friction.
 
-The singular/plural distinction refers to the number of humans, not the number of AI systems.
+12.  Open Issues
 
----
+   Future discussion SHOULD address:
 
-# 11. Semantic Interpretation of “wei”
+   1.  Whether "wai am" feels sufficiently natural for adoption.
 
-**wei** MUST indicate more than one human participant.
+   2.  Whether new object pronouns are necessary.
 
-The group MUST also have meaningful AI participation in the work being described.
+   3.  Whether possessive forms should be derived systematically.
 
-For example:
+   4.  Whether the threshold for "substantial AI contribution"
+       (Section 4) requires more precise guidance.
 
-A four-person software team using AI extensively throughout architecture, implementation, testing, and debugging MAY say:
+   5.  Whether organizations should use "wei" when speaking
+       institutionally.
 
-> Wei built this system.
+   6.  Whether non-human autonomous agents should eventually receive
+       related pronouns.
 
-A company employee speaking on behalf of a team whose AI involvement was merely spellchecking SHOULD instead say:
+   7.  Whether composite agency should extend beyond AI to other
+       cognitive systems.
 
-> We built this system.
+   8.  Whether the terms should represent collaboration specifically,
+       or augmentation more broadly.
 
----
+13.  Future Work
 
-# 12. Threshold for AI Participation
+   Potential future documents in this series include:
 
-The use of **wai** or **wei** SHOULD imply substantial AI contribution.
+   WAI-0002:  Object and possessive forms.
 
-Examples of substantial contribution include:
+   WAI-0003:  Reflexive and reciprocal forms.
 
-- generating significant portions of code;
-- proposing architecture;
-- assisting with reasoning;
-- generating alternative solutions;
-- analyzing datasets;
-- discovering patterns;
-- producing substantial drafts;
-- restructuring arguments;
-- generating designs;
-- performing simulations;
-- conducting iterative problem solving;
-- synthesizing complex information;
-- identifying errors or vulnerabilities;
-- contributing materially to decisions.
+   WAI-0004:  Attribution and disclosure conventions.
 
-Minor AI involvement SHOULD NOT normally trigger use of the composite pronouns.
+   WAI-0005:  Machine-readable human-AI authorship metadata.
 
-Examples include:
+   WAI-0006:  Multi-agent and autonomous-agent terminology.
 
-- spell checking;
-- grammar correction;
-- formatting;
-- autocomplete of trivial expressions;
-- simple unit conversion;
-- ordinary search;
-- basic calculator operations.
+   These identifiers are illustrative and do not refer to existing
+   documents.
 
----
+14.  Security Considerations
 
-# 13. Examples by Contribution Level
+   The proposed pronouns introduce no technical security mechanism.
+   However, misleading use could create attribution risks.
 
-## 13.1 Traditional Tool
+   Users MUST NOT intentionally use "I" to conceal significant AI
+   participation when disclosure is required.
 
-A developer uses a syntax-highlighting editor.
+   Users MUST NOT use "wai" or "wei" to imply that AI validates the
+   safety, correctness, legality, or reliability of a result.  AI
+   collaboration does not constitute independent verification.
 
-> I wrote the program.
+15.  IANA Considerations
 
----
+   This document has no IANA actions.
 
-## 13.2 Minor Automation
+16.  Normative References
 
-A developer uses automatic formatting.
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
-> I wrote the program.
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
----
+Author's Address
 
-## 13.3 AI Assistance
-
-A developer asks AI to explain an error once.
-
-Either:
-
-> I wrote the program.
-
-or, if the contribution materially affected the result:
-
-> Wai wrote the program.
-
-The choice depends on the significance of the contribution.
-
----
-
-## 13.4 Integrated Human–AI Development
-
-A developer iteratively designs, generates, reviews, tests, and refines code with AI.
-
-> Wai wrote the program.
-
----
-
-## 13.5 Human Team with AI
-
-Several developers collaborate with AI systems throughout the development lifecycle.
-
-> Wei wrote the program.
-
----
-
-# 14. Authorship Versus Tool Use
-
-This specification does not attempt to establish a universal philosophical boundary between a tool and a collaborator.
-
-Instead, **wai** and **wei** communicate the speaker's characterization of the production process.
-
-The key question is not:
-
-> “Was AI used?”
-
-The more relevant question is:
-
-> “Did AI participate meaningfully in producing the result?”
-
-A compiler does not normally make a developer part of a composite agent.
-
-A calculator does not normally make an accountant part of a composite agent.
-
-An AI system that proposes, revises, challenges, generates, evaluates, and materially influences an outcome may justify the composite form.
-
----
-
-# 15. Responsibility
-
-Use of **wai** or **wei** MUST NOT be interpreted as transferring responsibility from humans to AI.
-
-For example:
-
-> Wai approved the deployment.
-
-does not imply that the AI system assumes legal, professional, or ethical responsibility for the deployment.
-
-The human participant remains responsible to the extent required by the applicable legal, professional, organizational, or ethical framework.
-
-Similarly:
-
-> Wei approved the deployment.
-
-does not allow a human group to attribute responsibility to AI merely by using the composite pronoun.
-
----
-
-# 16. Consciousness and Personhood
-
-This RFC makes no claim regarding AI consciousness.
-
-Use of **wai** or **wei** MUST NOT be interpreted as asserting that AI possesses:
-
-- consciousness;
-- subjective experience;
-- moral personhood;
-- legal personhood;
-- human-equivalent agency;
-- independent authorship rights.
-
-The proposed pronouns describe a **working relationship**, not an ontological status.
-
----
-
-# 17. Transparency
-
-One objective of this proposal is to make meaningful AI participation more visible.
-
-Compare:
-
-> I produced this analysis.
-
-with:
-
-> Wai produced this analysis.
-
-The second form communicates additional information about the production process in a single word.
-
-Similarly:
-
-> We designed the system.
-
-and:
-
-> Wei designed the system.
-
-distinguish a conventional human team from an AI-integrated team.
-
----
-
-# 18. Object Pronouns
-
-Version 1.0 of this specification does NOT define dedicated object forms.
-
-For example, no normative equivalent of:
-
-**me**
-
-or:
-
-**us**
-
-is specified.
-
-This is intentional.
-
-Premature creation of an entire paradigm may introduce forms that are linguistically awkward or unlikely to gain adoption.
-
-Future RFCs MAY define such forms.
-
----
-
-# 19. Possessive Forms
-
-Version 1.0 does NOT define standardized equivalents of:
-
-**my**
-
-**mine**
-
-**our**
-
-or:
-
-**ours**.
-
-Where possession must be expressed, speakers SHOULD restructure the sentence where practical.
-
-Example:
-
-Instead of an experimental form such as:
-
-> This is wair project.
-
-version 1.0 recommends:
-
-> This is the project wai created.
-
-Future revisions MAY introduce standardized possessives if actual usage demonstrates a need for them.
-
----
-
-# 20. Reflexive Forms
-
-Version 1.0 does NOT define reflexive forms corresponding to:
-
-**myself**
-
-or:
-
-**ourselves**.
-
-Potential forms such as:
-
-**waiself**
-
-or:
-
-**weiselves**
-
-are explicitly reserved for future experimentation and are NOT part of this RFC.
-
----
-
-# 21. Number of AI Systems
-
-The number of AI systems MUST NOT determine whether **wai** or **wei** is used.
-
-Only the number of humans determines the singular/plural distinction.
-
-Therefore:
-
-One human + one AI:
-
-> wai
-
-One human + ten AI agents:
-
-> wai
-
-Two humans + one AI:
-
-> wei
-
-One hundred humans + many AI systems:
-
-> wei
-
----
-
-# 22. Human Primacy in Reference
-
-Both pronouns are human-anchored.
-
-**wai** begins from the perspective of one human speaker.
-
-**wei** begins from the perspective of a human group containing the speaker.
-
-AI systems therefore do not independently use these pronouns under this version of the specification.
-
-An autonomous AI claiming:
-
-> Wai completed the task.
-
-would fall outside the semantics defined by WAI-0001 unless a human speaker is part of the referent.
-
----
-
-# 23. AI as Extension Versus Participant
-
-The specification deliberately permits more than one interpretation of the human–AI relationship.
-
-Some users may conceptualize AI as:
-
-- a collaborator;
-- a cognitive extension;
-- an augmentation layer;
-- an external reasoning system;
-- a creative partner;
-- an interactive tool.
-
-The pronouns do not require agreement on which philosophical model is correct.
-
-They indicate only that the contribution was sufficiently integrated to merit explicit linguistic recognition.
-
----
-
-# 24. Examples in Different Domains
-
-## 24.1 Writing
-
-> Wai wrote this article.
-
-One writer worked substantially with AI.
-
-> Wei wrote this article.
-
-Several writers worked substantially with AI.
-
----
-
-## 24.2 Research
-
-> Wai analyzed the dataset.
-
-One researcher performed the analysis through integrated AI assistance.
-
-> Wei analyzed the dataset.
-
-A research team performed the analysis through integrated AI assistance.
-
----
-
-## 24.3 Design
-
-> Wai designed the interface.
-
-One designer and AI contributed meaningfully to the result.
-
-> Wei designed the interface.
-
-A design team and AI contributed meaningfully to the result.
-
----
-
-## 24.4 Engineering
-
-> Wai developed the architecture.
-
-One engineer collaborated substantially with AI.
-
-> Wei developed the architecture.
-
-Several engineers collaborated substantially with AI.
-
----
-
-## 24.5 Creative Work
-
-> Wai composed this piece.
-
-One human creator worked with AI.
-
-> Wei composed this piece.
-
-Several humans worked with AI.
-
----
-
-## 24.6 Strategic Work
-
-> Wai developed the strategy.
-
-One human worked substantially with AI.
-
-> Wei developed the strategy.
-
-A human group worked substantially with AI.
-
----
-
-# 25. Contrastive Examples
-
-The distinction can be demonstrated using the same sentence.
-
-### Individual human
-
-> I built this.
-
-### Human group
-
-> We built this.
-
-### Individual human + AI
-
-> Wai built this.
-
-### Human group + AI
-
-> Wei built this.
-
-This four-form contrast is the central value proposition of the specification.
-
----
-
-# 26. Why “wai”?
-
-The spelling **wai** has several desirable properties.
-
-It:
-
-- is short;
-- is visually distinct from **I** and **we**;
-- contains the sequence **AI**;
-- can suggest **I + AI**;
-- can suggest human–AI integration;
-- has an easily pronounceable English form.
-
-Its pronunciation /waɪ/ also makes it immediately distinguishable from **we**.
-
----
-
-# 27. Why “wei”?
-
-The spelling **wei** is intended as the plural counterpart to **wai**.
-
-Conceptually:
-
-**wai : I :: wei : we**
-
-It preserves visual symmetry while remaining phonetically distinguishable.
-
-**wai** → /waɪ/
-
-**wei** → /weɪ/
-
-The pair therefore creates both semantic and phonological contrast.
-
----
-
-# 28. Possible Ambiguities
-
-Both proposed forms resemble existing lexical items or names.
-
-**wai** sounds like **why**.
-
-**wei** sounds like **way**.
-
-This is not necessarily disqualifying.
-
-English already contains many homophones, including:
-
-- right / write;
-- their / there;
-- two / too;
-- sea / see.
-
-Syntactic position usually resolves the intended meaning.
-
-For example:
-
-> Wai built this application.
-
-cannot naturally be interpreted as:
-
-> Why built this application.
-
-Likewise:
-
-> Wei developed the model.
-
-is syntactically distinct from ordinary uses of **way**.
-
----
-
-# 29. Introduction in New Contexts
-
-Because these pronouns are not currently standard English, authors SHOULD define them at first use.
-
-Recommended declaration:
-
-> In this document, “wai” refers to one human acting in integrated collaboration with AI, while “wei” refers to a group of humans acting in integrated collaboration with AI.
-
-After this declaration, the pronouns MAY be used normally.
-
----
-
-# 30. Recommended Short Definition
-
-A concise definition is:
-
-> **wai**: I + AI  
-> **wei**: we + AI
-
-A more formal definition is:
-
-> **wai** is a first-person pronoun for one human acting through integrated AI collaboration.
-
-> **wei** is a first-person pronoun for multiple humans acting through integrated AI collaboration.
-
----
-
-# 31. Dictionary-Style Definitions
-
-## wai
-
-**wai** /waɪ/  
-*pronoun*
-
-A first-person pronoun referring to one human speaker acting in meaningful integrated collaboration with artificial intelligence.
-
----
-
-## wei
-
-**wei** /weɪ/  
-*pronoun*
-
-A first-person pronoun referring to a group of humans, including the speaker, acting in meaningful integrated collaboration with artificial intelligence.
-
----
-
-# 32. Formal Mapping
-
-Let:
-
-**H = number of human participants represented by the pronoun**
-
-and:
-
-**A = whether substantial AI collaboration is present**
-
-Then:
-
-| H | A | Pronoun |
-|---|---|---|
-| 1 | false | I |
-| >1 | false | we |
-| 1 | true | wai |
-| >1 | true | wei |
-
-In pseudocode:
-
-```text
-if humans == 1 and not ai_collaboration:
-    pronoun = "I"
-
-if humans > 1 and not ai_collaboration:
-    pronoun = "we"
-
-if humans == 1 and ai_collaboration:
-    pronoun = "wai"
-
-if humans > 1 and ai_collaboration:
-    pronoun = "wei"
-```
-
----
-
-# 33. Non-Goals
-
-WAI-0001 does NOT attempt to:
-
-- define whether AI is conscious;
-- grant AI legal personhood;
-- establish copyright ownership;
-- determine legal authorship;
-- establish moral responsibility;
-- replace disclosure requirements;
-- classify all software as AI;
-- define complete English grammar for composite agency;
-- require anyone to use the proposed pronouns.
-
-The RFC proposes vocabulary, not legal doctrine.
-
----
-
-# 34. Disclosure Requirements
-
-Use of **wai** or **wei** SHOULD NOT replace explicit AI disclosure when such disclosure is required.
-
-For example, if a scientific journal requires authors to state which AI tools were used, writing:
-
-> Wei prepared this paper.
-
-would not necessarily satisfy that requirement.
-
-The specific AI systems and their roles may still need to be disclosed separately.
-
----
-
-# 35. Security and Safety Considerations
-
-The proposed pronouns introduce no direct technical security mechanism.
-
-However, misleading use could create attribution risks.
-
-Users MUST NOT intentionally use **I** to conceal significant AI participation when disclosure is required.
-
-Likewise, users MUST NOT use **wai** or **wei** to imply that AI validates the safety, correctness, legality, or reliability of a result.
-
-AI collaboration does not constitute independent verification.
-
----
-
-# 36. Ethical Considerations
-
-The proposal aims to increase transparency rather than reduce accountability.
-
-Good use:
-
-> Wai developed the initial model, and I approved the final deployment.
-
-This sentence explicitly distinguishes collaborative production from individual responsibility.
-
-Similarly:
-
-> Wei drafted the recommendation, but the board made the final decision.
-
-The pronouns MAY therefore allow speakers to describe hybrid workflows more precisely while maintaining clear human accountability.
-
----
-
-# 37. Adoption Strategy
-
-Adoption SHOULD proceed experimentally.
-
-## Phase 1 — Individual Experimentation
-
-Users MAY begin employing **wai** and **wei** in informal or technical contexts with explicit definitions.
-
-## Phase 2 — Community Testing
-
-Developer, research, design, and AI communities MAY evaluate:
-
-- comprehensibility;
-- pronunciation;
-- grammatical naturalness;
-- usefulness;
-- ambiguity;
-- adoption friction.
-
-## Phase 3 — Corpus Observation
-
-If meaningful usage develops, actual language patterns SHOULD be studied before additional forms are standardized.
-
-## Phase 4 — Extension
-
-Future specifications MAY define:
-
-- object forms;
-- possessive forms;
-- reflexive forms;
-- contractions;
-- style recommendations;
-- machine-readable metadata equivalents.
-
----
-
-# 38. Success Criteria
-
-The proposal MAY be considered successful if users can reliably understand the following contrast without lengthy explanation:
-
-> I built it.
-
-> We built it.
-
-> Wai built it.
-
-> Wei built it.
-
-Additional indicators include:
-
-- spontaneous reuse;
-- low explanation cost;
-- successful spoken distinction;
-- use across multiple domains;
-- clear semantic value;
-- low grammatical friction.
-
----
-
-# 39. Open Questions
-
-Future discussion SHOULD address:
-
-1. Whether **wai am** feels sufficiently natural for adoption.
-
-2. Whether new object pronouns are necessary.
-
-3. Whether possessive forms should be derived systematically.
-
-4. Whether the semantic threshold for "substantial AI contribution" requires more precise guidance.
-
-5. Whether organizations should use **wei** when speaking institutionally.
-
-6. Whether non-human autonomous agents should eventually receive related pronouns.
-
-7. Whether composite agency should extend beyond AI to other cognitive systems.
-
-8. Whether the terms should represent collaboration specifically or augmentation more broadly.
-
----
-
-# 40. Future Extensions
-
-Potential future RFCs may include:
-
-**WAI-0002** — Object and possessive forms
-
-**WAI-0003** — Reflexive and reciprocal forms
-
-**WAI-0004** — Attribution and disclosure conventions
-
-**WAI-0005** — Machine-readable human–AI authorship metadata
-
-**WAI-0006** — Multi-agent and autonomous-agent terminology
-
-These identifiers are illustrative and do not represent existing standards.
-
----
-
-# 41. Reference Grammar
-
-Under WAI-0001:
-
-| Pronoun | Meaning | Be | Have | Example |
-|---|---|---|---|---|
-| I | one human | am | have | I am building it. |
-| we | human group | are | have | We are building it. |
-| wai | one human + AI | am | have | Wai am building it. |
-| wei | human group + AI | are | have | Wei are building it. |
-
-Past tense remains straightforward:
-
-> I built it.
-
-> We built it.
-
-> Wai built it.
-
-> Wei built it.
-
----
-
-# 42. Minimal Implementation
-
-A community wishing to experiment with this RFC need adopt only two rules:
-
-**Rule 1**
-
-Use:
-
-> wai
-
-when the intended meaning is:
-
-> one human + substantial AI collaboration.
-
-**Rule 2**
-
-Use:
-
-> wei
-
-when the intended meaning is:
-
-> multiple humans + substantial AI collaboration.
-
-Everything else MAY initially remain standard English.
-
----
-
-# 43. Canonical Statement
-
-The complete system may be summarized as:
-
-> **I = one human**
-
-> **we = multiple humans**
-
-> **wai = one human + AI**
-
-> **wei = multiple humans + AI**
-
-Or symbolically:
-
-```text
-I   → H
-we  → H+
-wai → H + AI
-wei → H+ + AI
-```
-
----
-
-# 44. Canonical Examples
-
-> **I coded this program.**
-
-One human coded it.
-
-> **We coded this program.**
-
-A group of humans coded it.
-
-> **Wai coded this program.**
-
-One human coded it through substantial AI collaboration.
-
-> **Wei coded this program.**
-
-A group of humans coded it through substantial AI collaboration.
-
----
-
-# 45. Conclusion
-
-Artificial intelligence is increasingly participating in human cognitive and creative workflows.
-
-Standard English first-person pronouns encode the distinction between individual and collective human agency, but they do not explicitly encode meaningful AI participation.
-
-WAI-0001 proposes a minimal extension.
-
-It introduces:
-
-**wai** /waɪ/
-
-for one human acting with AI,
-
-and:
-
-**wei** /weɪ/
-
-for multiple humans acting with AI.
-
-The resulting system is:
-
-**I → individual human**
-
-**we → human collective**
-
-**wai → individual human + AI**
-
-**wei → human collective + AI**
-
-The goal is not to redefine humanity, personhood, or responsibility.
-
-The goal is simply to make a new form of collaboration linguistically visible.
-
-The canonical distinction is:
-
-> **I built it.**
-
-> **We built it.**
-
-> **Wai built it.**
-
-> **Wei built it.**
-
-**End of WAI-0001**
+   Amaury Demilie
+   URI:   https://github.com/demiliea/human-ai-pronouns
